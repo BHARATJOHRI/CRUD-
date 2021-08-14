@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.EntityFramework.CommittableActionBus">
+            <summary>
+            Automatic Perform Flush on Commit
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Bus.TinyActionBus" />
+            <seealso cref="T:PH.Core3.EntityFramework.ICommittableActionBus" />
+        </member>
+        <member name="M:PH.Core3.EntityFramework.CommittableActionBus.#ctor(Microsoft.Extensions.Logging.ILogger{PH.Core3.EntityFramework.CommittableActionBus},PH.Core3.UnitOfWork.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Bus.TinyActionBus"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="uow">The Unit Of Work</param>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.CommittableActionBus.ThrowOnException">
+            <summary>
+            Gets or sets a value indicating whether <c>true</c>throw exception on error.
+            </summary>
+            <value><c>true</c> if throw on exception; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork">
+            <summary>
+            Entity Framework based Unit Of Work
+            </summary>
+            <seealso cref="T:PH.Core3.Common.CoreSystem.CoreDisposable" />
+            <seealso cref="T:PH.Core3.UnitOfWork.IUnitOfWork" />
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.#ctor(PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork,Microsoft.Extensions.Logging.ILogger{PH.Core3.EntityFramework.EntityFrameworkUnitOfWork})">
+            <summary>
+            Initialize a new instance of <see cref="T:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Identifier">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Commit">
+            <summary>
+            Perform Transaction Commit on a Db.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Commit(System.String)">
+            <summary>
+            Perform Transaction Commit on a Db and write a custom log message related to this commit.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+            <param name="logMessage"></param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Rollback">
+             <summary>
+             Rollback changes on Db Transaction.
+            
+             <exception cref="T:System.Exception">On rollback error re-trow exception</exception>
+             </summary>
+        </member>
+        <member name="E:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.Committed">
+            <summary>
+            Fired On Committed Unit Of Work
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.EntityFrameworkUnitOfWork.BeginScope(System.String)">
+            <summary>Begins the unit of work scope.</summary>
+            <param name="scopeName">Name of the scope.</param>
+            <returns>IDisposable scope</returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Extensions.DbSetExtensions">
+            <summary>
+            Generic Extensions for DbSet
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Extensions.DbSetExtensions.UpdateAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},``0)">
+            <summary>Updates the entity asynchronous.</summary>
+            <typeparam name="T">Type of Entity</typeparam>
+            <param name="dbSet">The database set.</param>
+            <param name="entity">The entity.</param>
+            <returns>The Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry for the entity.The entry provides access to change tracking information and operations for the entity.</returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.ICommittableActionBus">
+            <summary>
+            Automatic Perform Flush on Commit - Require IUnitOfWork on implementation
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Bus.IActionBus" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.ICommittableActionBus.ThrowOnException">
+            <summary>
+            Gets or sets a value indicating whether <c>true</c>throw exception on error.
+            </summary>
+            <value><c>true</c> if throw on exception; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.IdentityBaseContext`3">
+             <summary>
+             Core Identitity Context
+            
+             <see cref="T:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3"/>
+             </summary>
+             <typeparam name="TUser">Type of User Entity class</typeparam>
+             <typeparam name="TRole">Type of Role Entity class</typeparam>
+             <typeparam name="TKey">Type of User and Role Id Property</typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.IdentityBaseContext`3.ScopeDictionary">
+            <summary>Gets the scope dictionary.</summary>
+            <value>The scope dictionary.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.IdentityBaseContext`3.CancellationTokenSource">
+            <summary>Gets or sets the cancellation token source.</summary>
+            <value>The cancellation token source.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.IdentityBaseContext`3.CancellationToken">
+            <summary>Gets or sets the cancellation token.</summary>
+            <value>The cancellation token.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.EntityFramework.IdentityBaseContext`3"/> class.
+            </summary>
+            <param name="options">The options.</param>
+            <exception cref="T:System.ArgumentNullException">options</exception>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.SaveChanges">
+            <summary>
+            Saves all changes made in this context to the database.
+            </summary>
+            <returns>
+            The number of state entries written to the database.
+            </returns>
+            <remarks>
+            This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </remarks>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.SaveChanges(System.Boolean)">
+            <summary>
+            Saves all changes made in this context to the database.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indicates whether <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges" /> is called after the changes have
+            been sent successfully to the database.</param>
+            <returns>
+            The number of state entries written to the database.
+            </returns>
+            <remarks>
+            This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </remarks>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously saves all changes made in this context to the database.
+            </summary>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+            <returns>
+            A task that represents the asynchronous save operation. The task result contains the
+            number of state entries written to the database.
+            </returns>
+            <remarks>
+            <para>
+            This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </para>
+            <para>
+            Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
+            that any asynchronous operations have completed before calling another method on this context.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously saves all changes made in this context to the database.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indicates whether <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges" /> is called after the changes have
+            been sent successfully to the database.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+            <returns>
+            A task that represents the asynchronous save operation. The task result contains the
+            number of state entries written to the database.
+            </returns>
+            <remarks>
+            <para>
+            This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+            changes to entity instances before saving to the underlying database. This can be disabled via
+            <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </para>
+            <para>
+            Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
+            that any asynchronous operations have completed before calling another method on this context.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.IdentityBaseContext`3.Disposed">
+            <summary>
+            If Dispose already performed
+            </summary>
+        </member>
+        <member name="E:PH.Core3.EntityFramework.IdentityBaseContext`3.DisposedEvt">
+            <summary>Occurs when [disposed evt].</summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.EntityFramework.IdentityBaseContext`3.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Dispose">
+            <summary>
+                Releases the allocated resources for this context.
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the schema needed for the identity framework. 
+            </summary>
+            <param name="builder">
+            The builder being used to construct the model for this context.
+            </param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.OnCustomModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.AssignTenantAndOtherQueryFilterOnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Assign Query Filters base and other set on <see cref="T:Microsoft.EntityFrameworkCore.IEntityTypeConfiguration`1">map</see>
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.ScanAssemblyTypes">
+            <summary>Scans the assembly types.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.GetAllEntityTypes(System.Type[])">
+            <summary>Gets all entity types.</summary>
+            <param name="allTypes">All types.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.BeginTransaction">
+            <summary>Begins the transaction.</summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.DisposeTransaction">
+            <summary>Disposes the transaction.</summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Commit">
+            <summary>
+            Perform Transaction Commit on a Db.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Commit(System.String)">
+            <summary>
+            Perform Transaction Commit on a Db and write a custom log message related to this commit.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+            <param name="logMessage"></param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Rollback">
+             <summary>
+             Rollback changes on Db Transaction.
+            
+             <exception cref="T:System.Exception">On rollback error re-trow exception</exception>
+             </summary>
+        </member>
+        <member name="E:PH.Core3.EntityFramework.IdentityBaseContext`3.Committed">
+            <summary>
+            Fired On Committed Unit Of Work
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.BeginScope(System.String)">
+            <summary>Begins the scope.</summary>
+            <param name="scopeName">Name of the scope.</param>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.IdentityBaseContext`3.UowLogger">
+            <summary>Gets or sets the uow logger.</summary>
+            <value>The uow logger.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.PH#Core3#EntityFramework#Infrastructure#IDbContextUnitOfWork#Initialize">
+            <summary>Initializes this instance.</summary>
+            <returns>IDbContextUnitOfWork instance initialized</returns>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`3.Initialize">
+            <summary>
+            Init Method
+            </summary>
+            <returns>Instance of initialized Service</returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.IdentityBaseContext`2">
+            <summary>
+             Core Identitity Context
+            </summary>
+            <typeparam name="TUser">Type of User Entity class</typeparam>
+            <typeparam name="TRole">Type of Role Entity class</typeparam>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.IdentityBaseContext`2.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork">
+            <summary>
+            Db Context Unit Of Work
+            </summary>
+            <seealso cref="T:PH.Core3.UnitOfWork.IUnitOfWork" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork.UowLogger">
+            <summary>Gets or sets the uow logger.</summary>
+            <value>The uow logger.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork.Initialized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork"/> is initialized.
+            </summary>
+            <value><c>true</c> if initialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IDbContextUnitOfWork.Initialize">
+            <summary>Initializes this instance.</summary>
+            <returns>IDbContextUnitOfWork instance initialized</returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TUser">The type of the user.</typeparam>
+            <typeparam name="TRole">The type of the role.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Author">
+            <summary>Gets or sets the author.</summary>
+            <value>The author.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.CtxUid">
+            <summary>
+            Ctx Uid
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.TransactionAudits">
+            <summary>
+            Transaction Audit
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Audits">
+            <summary>Gets or sets the audits.</summary>
+            <value>The audits.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Identifier">
+            <summary>
+            Identifier
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Logger">
+            <summary>Gets or sets the logger.</summary>
+            <value>The logger.</value>
+        </member>
+        <member name="F:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.TransactionAudit">
+            <summary>
+            Current Transaction Audit.
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Initialized">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:PH.Core3.EntityFramework.IdentityBaseContext`3"/> is initialized.
+            </summary>
+            <value><c>true</c> if initialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3"/> class.
+            </summary>
+            <param name="options">The options to be used by a <see cref="T:Microsoft.EntityFrameworkCore.DbContext" />.</param>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.Changecount">
+            <summary>Gets or sets the changecount.</summary>
+            <value>The changecount.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.SaveBaseChanges(PH.Core3.Common.IIdentifier,System.String)">
+            <summary>Saves the base changes.</summary>
+            <param name="identifier">The identifier.</param>
+            <param name="author">The author.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            identifier
+            or
+            author - Author must be set before any savechanges
+            </exception>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.SaveBaseChanges(PH.Core3.Common.IIdentifier,System.String,System.Boolean)">
+            <summary>Saves the base changes.</summary>
+            <param name="identifier">The identifier.</param>
+            <param name="author">The author.</param>
+            <param name="b">if set to <c>true</c> [b].</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            identifier
+            or
+            author - Author must be set before any savechanges
+            </exception>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.SaveBaseChangesAsync(PH.Core3.Common.IIdentifier,System.String,System.Threading.CancellationToken)">
+            <summary>Saves the base changes asynchronous.</summary>
+            <param name="identifier">The identifier.</param>
+            <param name="author">The author.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            identifier
+            or
+            author - Author must be set before any savechanges
+            </exception>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.SaveBaseChangesAsync(PH.Core3.Common.IIdentifier,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>Saves the base changes asynchronous.</summary>
+            <param name="identifier">The identifier.</param>
+            <param name="author">The author.</param>
+            <param name="b">if set to <c>true</c> [b].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            identifier
+            or
+            author - Author must be set before any savechanges
+            </exception>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IdentityBaseContextInfrastructure`3.OnBeforeSaveChanges(PH.Core3.Common.IIdentifier,System.String)">
+            <summary>
+            Called before save changes.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="author">The author.</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TUser">The type of the user.</typeparam>
+            <typeparam name="TRole">The type of the role.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:PH.Core3.EntityFramework.Infrastructure.ITenantContext" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.Logger">
+            <summary>Gets or sets the logger.</summary>
+            <value>The logger.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.ScopeDictionary">
+            <summary>Gets the scope dictionary.</summary>
+            <value>The scope dictionary.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.Identifier">
+            <summary>
+            Identifier
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.Author">
+            <summary>Gets or sets the author.</summary>
+            <value>The author.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.CtxUid">
+            <summary>
+            Ctx Uid
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.CancellationTokenSource">
+            <summary>Gets or sets the cancellation token source.</summary>
+            <value>The cancellation token source.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.CancellationToken">
+            <summary>Gets the cancellation token.</summary>
+            <value>The cancellation token.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.OnCustomModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Called when [custom model creating].
+            </summary>
+            <param name="builder">The builder.</param>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Infrastructure.IIdentityBaseContext`3.BeginScope(System.String)">
+            <summary>Begins the scope.</summary>
+            <param name="scopeName">Name of the scope.</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Infrastructure.ITenantContext">
+            <summary>
+            Tenant Context
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Infrastructure.ITenantContext.TenantName">
+            <summary>Gets or sets the tenant identifier.</summary>
+            <value>The tenant identifier.</value>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.EntityMap">
+            <summary>
+            Allows configuration for an entity type to be factored into a separate class
+            </summary>
+            <seealso cref="T:PH.Core3.EntityFramework.Mapping.IEntityMap" />
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.EntityMap.GetEntityType">
+            <summary>Gets the type of the entity.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.EntityMap`2">
+            <summary>
+            Allows configuration for an entity type to be factored into a separate class
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:PH.Core3.EntityFramework.Mapping.IEntityMap" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Mapping.EntityMap`2.EntityType">
+            <summary>Gets the type of the entity.</summary>
+            <value>The type of the entity.</value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.EntityMap`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.EntityFramework.Mapping.EntityMap`2"/> class.
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.EntityMap`2.GetEntityType">
+            <summary>Gets the type of the entity.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.EntityMap`2.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{`0})">
+             <summary>
+                 Configures the entity of type <typeparamref name="TEntity" />.
+            
+             Override Configure Method calling base!
+             </summary>
+             <param name="builder"> The builder to be used to configure the entity type. </param>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.StatusEntityMap`2">
+             <summary>
+                 Configures the entity of type <typeparamref name="TEntity" />.
+            
+             Override Configure Method calling base!
+             </summary>
+             <typeparam name="TEntity">The type of the entity.</typeparam>
+             <typeparam name="TKey">The type of the key.</typeparam>
+             <seealso cref="T:PH.Core3.EntityFramework.Mapping.EntityMap`2" />
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.StatusEntityMap`2.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{`0})">
+             <summary>
+                 Configures the entity of type <typeparamref name="TEntity" />.
+            
+             Override Configure Method calling base!
+             </summary>
+             <param name="builder"> The builder to be used to configure the entity type. </param>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.IEntityMap">
+            <summary>
+            Allows configuration for an entity type to be factored into a separate class
+            </summary>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.IEntityMap.GetEntityType">
+            <summary>Gets the type of the entity.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.IEntityMap`2">
+             <summary>
+             Allows configuration for an entity type to be factored into a separate class,
+             rather than in-line in Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder).
+             Implement this interface, applying configuration for the entity in the Microsoft.EntityFrameworkCore.IEntityTypeConfiguration`1.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{`0})
+             method, and then apply the configuration to the model using Microsoft.EntityFrameworkCore.ModelBuilder.ApplyConfiguration``1(Microsoft.EntityFrameworkCore.IEntityTypeConfiguration{``0})
+             in Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder).
+            
+             <see cref="T:Microsoft.EntityFrameworkCore.IEntityTypeConfiguration`1"/>
+             </summary>
+             <typeparam name="TEntity">The entity type to be configured.</typeparam>
+             <typeparam name="TKey">The entity Id type to be configured.</typeparam>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.TransactionAuditMap.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit})">
+            <inheritdoc />
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Mapping.TreeEntityMap`2">
+            <inheritdoc cref="T:PH.Core3.EntityFramework.Mapping.IEntityMap`2" />
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Mapping.TreeEntityMap`2.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{`0})">
+            <summary>
+                Configures the entity of type <typeparamref name="TEntity" />.
+            </summary>
+            <param name="builder"> The builder to be used to configure the entity type. </param>
+        </member>
+    </members>
+</doc>

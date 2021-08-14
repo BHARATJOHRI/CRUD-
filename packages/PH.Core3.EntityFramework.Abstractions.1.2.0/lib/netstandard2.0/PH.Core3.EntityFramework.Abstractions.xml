@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.EntityFramework.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1">
+             <summary>
+             Entity Base Class to Persist on Db
+            
+             All entities that need to persist on the database must implement the current interface
+             </summary>
+             <typeparam name="TKey">Type of the Id property</typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.Id">
+            <summary>
+            Unique Id of current class
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.Deleted">
+             <summary>
+             True if Entity is Deleted
+            
+             (Logical delete)
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.DeletedTransactionId">
+            <summary>
+             Uid If <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Deleted"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.DeletedTransaction">
+            <summary>
+            Reference to Delete <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.CreatedTransactionId">
+            <summary>
+            Uid of creation
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.CreatedTransaction">
+            <summary>
+            Reference to Create <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.UpdatedTransactionId">
+            <summary>
+            Uid of update
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.UpdatedTransaction">
+            <summary>
+            Reference to Update <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1.Timestamp">
+            <summary>
+            Row Version and Concurrency Check Token
+            </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity">
+             <summary>
+             Entity Base Interface to Persist on Db
+            
+             All entities that need to persist on the database must implement the current interface
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Timestamp">
+            <summary>
+            Row Version and Concurrency Check Token
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Deleted">
+             <summary>
+             True if Entity is Deleted
+            
+             (Logical delete)
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.DeletedTransactionId">
+            <summary>
+             Uid If <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Deleted"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.DeletedTransaction">
+            <summary>
+            Reference to Delete <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.CreatedTransactionId">
+            <summary>
+            Uid of creation
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.CreatedTransaction">
+            <summary>
+            Reference to Create <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.UpdatedTransactionId">
+            <summary>
+            Uid of update
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.UpdatedTransaction">
+            <summary>
+            Reference to Update <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity`1">
+             <summary>
+             Entity Base Interface to Persist on Db
+            
+             All entities that need to persist on the database must implement the current interface
+             </summary>
+             <typeparam name="TKey">Type of the Id property</typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity`1.Id">
+            <summary>Gets or sets the unique id (Primary Key) for current Entity.</summary>
+            <value>The Id.</value>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity`1">
+            <summary>
+            Entity Base auto-filtered based on UtcValidFrom and UtcValidUntil
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity" />
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity">
+            <summary>
+            Entity Base auto-filtered based on <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity.UtcValidFrom"/> and <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity.UtcValidUntil"/>
+            </summary>
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity.UtcValidFrom">
+            <summary>
+            Gets or sets the UTC valid from.  
+            </summary>
+            <value>
+            The UTC valid from.
+            </value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity.UtcValidUntil">
+            <summary>
+            Gets or sets the UTC valid until.
+            </summary>
+            <value>
+            The UTC valid until.
+            </value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity.Valid">
+            <summary>
+            Gets the validity of current entity. Lazy evaluated
+            </summary>
+            <value>
+              <c>true</c> if valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem">
+            <summary>
+            Represent one Item in a Tree
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem.EntityLevel">
+            <summary>
+            Represents the depth on the tree (0 for Root Item)
+            </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`1">
+            <summary>
+            Base Interface for <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem">tree items</see>
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`1.ParentId">
+             <summary>
+             Reference Id for Parent
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`1.RootId">
+             <summary>
+             Reference Id For Root Item
+            
+             Equals to Id if current item is root.
+             </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`2">
+            <summary>
+            Entity Interface for Tree Items
+            </summary>
+            <typeparam name="TEntity">Type of Entity</typeparam>
+            <typeparam name="TKey">Type of Entity Id Property</typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`2.Parent">
+             <summary>
+             Reference to the Parent Entity
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`2.Childrens">
+            <summary>
+            Collection of children items
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeEntity`2.RootEntity">
+             <summary>
+             Reference to the Root Item Entity
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.ITreeItem.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity">
+            <summary>
+            Role
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Identity.IdentityRole`1" />
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity`1" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.Deleted">
+             <summary>
+             True if Entity is Deleted
+            
+             (Logical delete)
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.DeletedTransactionId">
+            <summary>
+             Uid If <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Deleted"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.DeletedTransaction">
+            <summary>
+            Reference to Delete <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.CreatedTransactionId">
+            <summary>
+            Uid of creation
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.CreatedTransaction">
+            <summary>
+            Reference to Create <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.UpdatedTransactionId">
+            <summary>
+            Uid of update
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.UpdatedTransaction">
+            <summary>
+            Reference to Update <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.RoleEntity.Timestamp">
+            <summary>
+            Row Version and Concurrency Check Token
+            </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.StatusEntity`1">
+            <summary>
+            Entity Base auto-filtered based on UtcValidFrom and UtcValidUntil
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.Entity`1" />
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity`1" />
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IStatusEntity" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.StatusEntity`1.UtcValidFrom">
+            <summary>
+            Gets or sets the UTC valid from.  
+            </summary>
+            <value>
+            The UTC valid from.
+            </value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.StatusEntity`1.UtcValidUntil">
+            <summary>
+            Gets or sets the UTC valid until.
+            </summary>
+            <value>
+            The UTC valid until.
+            </value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.StatusEntity`1.Valid">
+            <summary>
+            Gets the validity of current entity. Lazy evaluated
+            </summary>
+            <value>
+            <c>true</c> if valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:PH.Core3.EntityFramework.Abstractions.Models.Entities.StatusEntity`1.GetValidity">
+            <summary>
+            Gets the validity.
+            </summary>
+            <returns>        
+            <c>true</c> if valid; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit">
+            <summary>
+            Class for Tracking Audits on Db.
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.Id">
+            <summary>
+            Unique Id of current transaction
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.StrIdentifier">
+            <summary>Gets or sets the string identifier: unique, assigned.</summary>
+            <value>The string identifier.</value>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.Author">
+            <summary>
+            Author of current Transaction
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.UtcDateTime">
+            <summary>
+            Date And Time UTC of Current Transaction Open
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.Timestamp">
+            <summary>
+            Row Version and Concurrency Check Token
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.MillisecDuration">
+            <summary>
+            Millises duration of current Transaction
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.Scopes">
+            <summary>
+            Transaction Scopes
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit.CommitMessage">
+            <summary>
+            A Custom LogMessage related to this transaction (set by IUnitOfWork)
+            </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2">
+            <summary>
+            Entity abstraction for Tree Items
+            </summary>
+            <typeparam name="TKey">struct type of Id Property</typeparam>
+            <typeparam name="TEntity">Entity vtype</typeparam>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.EntityLevel">
+            <summary>
+            Represents the depth on the tree (0 for Root Item)
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.ParentId">
+             <summary>
+             Reference Id for Parent
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.RootId">
+             <summary>
+             Reference Id For Root Item
+            
+             Equals to Id if current item is Root
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.Parent">
+             <summary>
+             Reference to the Parent Entity
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.Childrens">
+            <summary>
+            Collection of children items
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.RootEntity">
+             <summary>
+             Reference to the Root Item Entity
+            
+             Null if current item is a root <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.TreeEntity`2.EntityLevel"/>
+             </summary>
+        </member>
+        <member name="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity">
+            <summary>
+            User entity
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Identity.IdentityUser`1" />
+            <seealso cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity`1" />
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.Deleted">
+             <summary>
+             True if Entity is Deleted
+            
+             (Logical delete)
+             </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.DeletedTransactionId">
+            <summary>
+             Uid If <see cref="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.IEntity.Deleted"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.DeletedTransaction">
+            <summary>
+            Reference to Delete <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/> 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.CreatedTransactionId">
+            <summary>
+            Uid of creation
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.CreatedTransaction">
+            <summary>
+            Reference to Create <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.UpdatedTransactionId">
+            <summary>
+            Uid of update
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.UpdatedTransaction">
+            <summary>
+            Reference to Update <see cref="T:PH.Core3.EntityFramework.Abstractions.Models.Entities.TransactionAudit"/>
+            </summary>
+        </member>
+        <member name="P:PH.Core3.EntityFramework.Abstractions.Models.Entities.UserEntity.Timestamp">
+            <summary>
+            Row Version and Concurrency Check Token
+            </summary>
+        </member>
+    </members>
+</doc>

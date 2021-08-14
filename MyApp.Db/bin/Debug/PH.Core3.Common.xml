@@ -1,0 +1,1436 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.Common</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.Common.Bus.IActionBus">
+            <summary>
+            Action Bus 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Bus.IActionBus.Count">
+            <summary>Gets the count of queued actions.</summary>
+            <value>The count.</value>
+        </member>
+        <member name="M:PH.Core3.Common.Bus.IActionBus.Enqueue(System.Action)">
+            <summary>Enqueues the specified action.</summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Bus.IActionBus.Flush(System.Boolean)">
+            <summary>Flush all actions.</summary>
+            <param name="throwExceptionOnError">if set to <c>true</c>throw exception on error.</param>
+        </member>
+        <member name="T:PH.Core3.Common.Bus.TinyActionBus">
+            <summary>
+            Action Bus 
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Bus.IActionBus" />
+        </member>
+        <member name="M:PH.Core3.Common.Bus.TinyActionBus.#ctor(Microsoft.Extensions.Logging.ILogger{PH.Core3.Common.Bus.TinyActionBus})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Bus.TinyActionBus"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="P:PH.Core3.Common.Bus.TinyActionBus.Count">
+            <summary>Gets the count of queued actions.</summary>
+            <value>The count.</value>
+        </member>
+        <member name="M:PH.Core3.Common.Bus.TinyActionBus.Enqueue(System.Action)">
+            <summary>Enqueues the specified action.</summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Bus.TinyActionBus.Flush(System.Boolean)">
+            <summary>Flush all actions.</summary>
+            <param name="throwExceptionOnError">if set to <c>true</c>[throw exception on error.</param>
+            <exception cref="T:System.Exception">if action on error and throwExceptionOnError is set to true</exception>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreAggregateException">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:System.AggregateException" />
+            <seealso cref="T:PH.Core3.Common.CoreSystem.CoreException" />
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreAggregateException.Identifier">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreAggregateException.#ctor(PH.Core3.Common.IIdentifier,System.Collections.Generic.IEnumerable{System.Exception})">
+            <summary>Initializes a new instance of the <see cref="T:System.AggregateException"></see> class with references to the inner exceptions that are the cause of this exception.</summary>
+            <param name="identifier">The identifier</param>
+            <param name="innerExceptions">The exceptions that are the cause of the current exception.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="innerExceptions">innerExceptions</paramref> argument is null.</exception>
+            <exception cref="T:System.ArgumentException">An element of <paramref name="innerExceptions">innerExceptions</paramref> is null.</exception>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreAggregateException.#ctor(PH.Core3.Common.IIdentifier,System.Exception[])">
+            <summary>Initializes a new instance of the <see cref="T:System.AggregateException"></see> class with references to the inner exceptions that are the cause of this exception.</summary>
+            <param name="identifier">The identifier</param>
+            <param name="innerExceptions">The exceptions that are the cause of the current exception.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="innerExceptions">innerExceptions</paramref> argument is null.</exception>
+            <exception cref="T:System.ArgumentException">An element of <paramref name="innerExceptions">innerExceptions</paramref> is null.</exception>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreAggregateException.#ctor(PH.Core3.Common.IIdentifier,System.String,System.Collections.Generic.IEnumerable{System.Exception})">
+            <summary>Initializes a new instance of the <see cref="T:System.AggregateException"></see> class with a specified error message and references to the inner exceptions that are the cause of this exception.</summary>
+            <param name="identifier">The identifier</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerExceptions">The exceptions that are the cause of the current exception.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="innerExceptions">innerExceptions</paramref> argument is null.</exception>
+            <exception cref="T:System.ArgumentException">An element of <paramref name="innerExceptions">innerExceptions</paramref> is null.</exception>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreAggregateException.#ctor(PH.Core3.Common.IIdentifier,System.String,System.Exception[])">
+            <summary>Initializes a new instance of the <see cref="T:System.AggregateException"></see> class with a specified error message and references to the inner exceptions that are the cause of this exception.</summary>
+            <param name="identifier">The identifier</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerExceptions">The exceptions that are the cause of the current exception.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="innerExceptions">innerExceptions</paramref> argument is null.</exception>
+            <exception cref="T:System.ArgumentException">An element of <paramref name="innerExceptions">innerExceptions</paramref> is null.</exception>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreDisposable">
+            <summary>
+            Base abstract class implementing <see cref="T:PH.Core3.Common.CoreSystem.ICoreDisposable"/>
+            
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposable.Instance(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Init new instance of ICoreDisposable
+            </summary>
+            <param name="identifier">Identifier</param>
+            <returns>ICoreDisposable</returns>
+        </member>
+        <member name="F:PH.Core3.Common.CoreSystem.CoreDisposable._identifier">
+            <summary>
+            IDentifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposable.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initialize a new instance of <see cref="T:PH.Core3.Common.CoreSystem.CoreDisposable"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposable.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposable.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposable.OnDisposed(PH.Core3.Common.CoreSystem.CoreDisposableEventArgs)">
+            <summary>
+            On Disposed 
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed">
+            <summary>
+            If Dispose already performed
+            </summary>
+        </member>
+        <member name="E:PH.Core3.Common.CoreSystem.CoreDisposable.DisposedEvt">
+            <inheritdoc />
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreDisposableInstance">
+            <inheritdoc />
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposableInstance.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initialize a new instance of <see cref="T:PH.Core3.Common.CoreSystem.CoreDisposable"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposableInstance.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreDisposableEventArgs">
+            <summary>
+            Event Args for Disposed CoreDisposable
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreDisposableEventArgs.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.CoreSystem.CoreDisposableEventArgs"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreEventArgs">
+            <summary>
+            Base Event Argument class
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreEventArgs.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.CoreSystem.CoreEventArgs"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreEventArgs.Identifier">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreEventArgs.UtcFired">
+            <summary>Gets the UTC fired.</summary>
+            <value>The UTC fired.</value>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreEventArgs.Id">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.CoreException">
+            <summary>
+            Core Exception class
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.CoreException.Identifier">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreException.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.CoreSystem.CoreException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreException.#ctor(PH.Core3.Common.IIdentifier,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.CoreSystem.CoreException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.CoreException.#ctor(PH.Core3.Common.IIdentifier,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.CoreSystem.CoreException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.IInitializable`1">
+            <summary>
+            A service that require initialize
+            </summary>
+            <typeparam name="TSelf">Self Concrete-Type</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.IInitializable`1.Initialized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:PH.Core3.Common.CoreSystem.IInitializable`1"/> is initialized.
+            </summary>
+            <value><c>true</c> if initialized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:PH.Core3.Common.CoreSystem.IInitializable`1.Initialize">
+            <summary>
+            Init Method
+            </summary>
+            <returns>Instance of initialized Service</returns>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.ICoreDisposable">
+             <summary>
+             Provides a mechanism for releasing unmanaged resources.
+            
+             <see cref="T:System.IDisposable"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.ICoreDisposable.Disposed">
+            <summary>
+            If Dispose already performed
+            </summary>
+        </member>
+        <member name="E:PH.Core3.Common.CoreSystem.ICoreDisposable.DisposedEvt">
+            <summary>Occurs when [disposed evt].</summary>
+        </member>
+        <member name="T:PH.Core3.Common.CoreSystem.IIdentifiable`1">
+            <summary>
+            anything that should have an identifier
+            </summary>
+            <typeparam name="TKey">Type of Id Property</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.CoreSystem.IIdentifiable`1.Id">
+            <summary>
+            Unique Id of current class
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Extensions.ClassExtensions">
+            <summary>
+            Class and Object Extensions
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.ClassExtensions.AsChild``2(``0)">
+            <summary>Return a child instance from a parent instance</summary>
+            <typeparam name="TParent">The type of the parent.</typeparam>
+            <typeparam name="TChild">The type of the child.</typeparam>
+            <param name="p">The parent instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.ClassExtensions.ParseParent``2(``1)">
+            <summary>Parses the parent and return as his child element</summary>
+            <typeparam name="TChild">The type of the child.</typeparam>
+            <typeparam name="TParent">The type of the parent.</typeparam>
+            <param name="parentInstance">The parent instance.</param>
+            <returns>the child instance</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Extensions.EnumExtensions">
+            <summary>
+            Enum exttensions methods
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.EnumExtensions.GetDisplayName(System.Enum)">
+            <summary>
+            Gets the display name, if any, set by <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/>
+            </summary>
+            <param name="enumValue">The enum value.</param>
+            <returns>Display Name or raw ToString()</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.EnumExtensions.GetDescription(System.Enum)">
+             <summary>
+             Gets the description, if any set by <see cref="T:System.ComponentModel.DescriptionAttribute"/>, otherwise return DisplayName.
+            
+             <seealso cref="M:PH.Core3.Common.Extensions.EnumExtensions.GetDisplayName(System.Enum)"/>
+             </summary>
+             <param name="enumValue">The enum value.</param>
+             <returns>Description or Name</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Extensions.LoggingExtensions">
+            <summary>
+            Logging useful extensions
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.LogOnlyError(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.Result.IError)">
+            <summary>
+            Log error
+            </summary>
+            <param name="l">logger</param>
+            <param name="error">error</param>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.LogOnlyCritical(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.Result.IError)">
+            <summary>
+            log critical
+            </summary>
+            <param name="l">logger</param>
+            <param name="error">error</param>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorWithContentAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,``0,System.String)">
+            <summary>Log Error and return fail with content</summary>
+            <typeparam name="T">Type of the content</typeparam>
+            <param name="logger">The logger.</param>
+            <param name="identifier">The identifier.</param>
+            <param name="content">The content.</param>
+            <param name="errorMessage">The error message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorWithContentAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,``0,PH.Core3.Common.Result.IError)">
+            <summary>Log Error and return fail with content</summary>
+            <typeparam name="T">Type of the content</typeparam>
+            <param name="logger">The logger.</param>
+            <param name="identifier">The identifier.</param>
+            <param name="content">The content.</param>
+            <param name="error">The error.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,PH.Core3.Common.Result.IError)">
+            <summary>
+            Log Error and return fail
+            </summary>
+            <param name="l">the logger</param>
+            <param name="i">the identifier</param>
+            <param name="error">error</param>
+            <typeparam name="T">type of result</typeparam>
+            <returns>Result fail</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,FluentValidation.Results.ValidationResult,System.Nullable{Microsoft.Extensions.Logging.EventId})">
+            <summary>Errors the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The i.</param>
+            <param name="fluentValidationResult">The fluent validation result.</param>
+            <param name="eventId">The event identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String,System.Nullable{Microsoft.Extensions.Logging.EventId},System.String)">
+            <summary>Errors the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.ErrorAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String,Microsoft.Extensions.Logging.EventId,System.String)">
+            <summary>Errors the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.CriticalAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,PH.Core3.Common.Result.IError)">
+            <summary>Criticals the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="error">The error.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.CriticalAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.Exception)">
+            <summary>Criticals the and return fail.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="l">The logger instance.</param>
+            <param name="i">The identifier.</param>
+            <param name="exception">The exception.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.CriticalAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,FluentValidation.Results.ValidationResult,System.Nullable{Microsoft.Extensions.Logging.EventId})">
+            <summary>Criticals the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="fluentValidationResult">The fluent validation result.</param>
+            <param name="eventId">The event identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.CriticalAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String,System.Nullable{Microsoft.Extensions.Logging.EventId},System.String)">
+            <summary>Criticals the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.LoggingExtensions.CriticalAndReturnFail``1(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String,Microsoft.Extensions.Logging.EventId,System.String)">
+            <summary>Criticals the and return fail.</summary>
+            <typeparam name="T">type of result</typeparam>
+            <param name="l">The logger.</param>
+            <param name="i">The identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Extensions.NewIdExtensions">
+            <summary>
+            Other methods for <see cref="T:MassTransit.NewId"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.NewIdExtensions.NextStringId">
+            <summary>Get the Next string identifier.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.NewIdExtensions.NextSortableIdLognString">
+             <summary>Nexts the sortable identifier long string as combine of NewId and current UTc DateTime.
+            the output is a string length 55 chars eg. CB190000F45B98E7CD8A08D6FFB847C320190703T1313462598038Z
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Extensions.StringExtensions">
+            <summary>
+            String extensions
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.StringExtensions.IsNullString(System.String)">
+            <summary>
+            Combine string.IsNullOrEmpty(value) and string.IsNullOrWhiteSpace(value)
+            </summary>
+            <param name="value">string to check</param>
+            <returns>True if Null or Empty or WhiteSpace</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Extensions.StringExtensions.GetMd5(System.String)">
+            <summary>Gets the MD5 of current string.</summary>
+            <param name="stringvalue">The string value.</param>
+            <returns>MD5 value of given string</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if given string is null or empty or white-space</exception>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.BaseIdentifier">
+            <summary>
+            Abstraction of Unique Identifier across Scope
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.BaseIdentifier.BaseIdentifierGuid">
+            <summary>
+            Guid
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.BaseIdentifier.UtcGenerated">
+            <summary>
+            Utc Date and Time init of current identifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.BaseIdentifier.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier">
+            <summary>
+            Unique Identifier across Scope based on ClaimsPrincipal identity 
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier.Name">
+            <summary>
+            Identity Name
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier.Principal">
+            <summary>
+            ClaimsPrincipal 
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier.#ctor(System.String,System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier"/> class.
+            </summary>
+            <param name="uid">The uid.</param>
+            <param name="principal">The principal.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier.GetHashCode">
+            <summary>Serves as the default hash function.</summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier">
+            <summary>
+            Unique Identifier with Tenant id across Scope based on ClaimsPrincipal identity 
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Identifiers.ClaimsPrincipalIdentifier" />
+            <seealso cref="T:PH.Core3.Common.IPerTenantIdentifier" />
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier.#ctor(System.String,System.String,System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier"/> class.
+            </summary>
+            <param name="uid">The uid.</param>
+            <param name="tenantId">The tenant identifier.</param>
+            <param name="principal">The principal.</param>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier.TenantId">
+            <summary>
+            Tenant Identifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier.GetHashCode">
+            <summary>Serves as the default hash function.</summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.ClaimsPrincipalTenantIdentifier.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.Identifier">
+            <summary>
+            Unique Identifier across Scope
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Identifier.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="uid"></param>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.Identifier.Uid">
+            <summary>
+            Unique Identifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Identifier.Equals(System.Object)">
+            <summary>Determines whether the specified object is equal to the current object.</summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Identifier.GetHashCode">
+            <summary>Serves as the default hash function.</summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Identifier.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.Services.ServiceIdentifier">
+            <summary>
+            Service Identifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.#ctor(Microsoft.Extensions.Logging.EventId)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Identifiers.Services.ServiceIdentifier"/> struct.
+            </summary>
+            <param name="eventId">The event identifier.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Identifiers.Services.ServiceIdentifier"/> struct.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.Id">
+            <summary>
+            Service Id
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.Name">
+            <summary>
+            Service Name
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Implicit(System.Int32)~PH.Core3.Common.Identifiers.Services.ServiceIdentifier">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Int32"/> to <see cref="T:PH.Core3.Common.Identifiers.Services.ServiceIdentifier"/>.
+            </summary>
+            <param name="i">The identifier.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Implicit(PH.Core3.Common.Identifiers.Services.ServiceIdentifier)~Microsoft.Extensions.Logging.EventId">
+            <summary>
+            Performs an implicit conversion from <see cref="T:PH.Core3.Common.Identifiers.Services.ServiceIdentifier"/> to <see cref="T:Microsoft.Extensions.Logging.EventId"/>.
+            </summary>
+            <param name="serviceIdentifier">The service identifier.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Addition(PH.Core3.Common.Identifiers.Services.ServiceIdentifier,PH.Core3.Common.Identifiers.Services.ServiceIdentifier)">
+            <summary>Implements the operator +.</summary>
+            <param name="a">Service Identifier a.</param>
+            <param name="b">Service Identifier b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Addition(PH.Core3.Common.Identifiers.Services.ServiceIdentifier,Microsoft.Extensions.Logging.EventId)">
+            <summary>Implements the operator +.</summary>
+            <param name="a">ServiceIdentifier a.</param>
+            <param name="b">The EventId b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Addition(Microsoft.Extensions.Logging.EventId,PH.Core3.Common.Identifiers.Services.ServiceIdentifier)">
+            <summary>Implements the operator +.</summary>
+            <param name="a">EventId a.</param>
+            <param name="b">The ServiceIdentifier b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Subtraction(PH.Core3.Common.Identifiers.Services.ServiceIdentifier,PH.Core3.Common.Identifiers.Services.ServiceIdentifier)">
+            <summary>Implements the operator -.</summary>
+            <param name="a">ServiceIdentifier a.</param>
+            <param name="b">ServiceIdentifier b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Subtraction(PH.Core3.Common.Identifiers.Services.ServiceIdentifier,Microsoft.Extensions.Logging.EventId)">
+            <summary>Implements the operator -.</summary>
+            <param name="a">ServiceIdentifier a.</param>
+            <param name="b">EventId b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.Services.ServiceIdentifier.op_Subtraction(Microsoft.Extensions.Logging.EventId,PH.Core3.Common.Identifiers.Services.ServiceIdentifier)">
+            <summary>Implements the operator -.</summary>
+            <param name="a">EventId a.</param>
+            <param name="b">ServiceIdentifier b.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Identifiers.TenantIdentifier">
+            <summary>
+            Tenant Identifier across scope
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Identifiers.Identifier" />
+            <seealso cref="T:PH.Core3.Common.IPerTenantIdentifier" />
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.TenantIdentifier.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Identifiers.TenantIdentifier"/> class.
+            </summary>
+            <param name="uid">The uid.</param>
+            <param name="tenantId">The tenant identifier.</param>
+        </member>
+        <member name="P:PH.Core3.Common.Identifiers.TenantIdentifier.TenantId">
+            <summary>
+            Tenant Identifier
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.TenantIdentifier.GetHashCode">
+            <summary>Serves as the default hash function.</summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Identifiers.TenantIdentifier.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:PH.Core3.Common.IIdentifier">
+            <summary>
+            Abstraction of Unique Identifier across Scope
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.IIdentifier.Uid">
+            <summary>
+            Unique Identifier
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.IPerTenantIdentifier">
+            <summary>
+            Abstraction of Unique Identifier across Scope With Tenant Id
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.IPerTenantIdentifier.TenantId">
+            <summary>
+            Tenant Identifier
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.DtoResult`1">
+            <summary>
+            abstract DTO result
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <seealso cref="T:PH.Core3.Common.Models.ViewModels.IDtoResult`1" />
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.DtoResult`1.Id">
+            <summary>
+            Unique Id of current class
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.DtoResult`1.UtcLastUpdated">
+            <summary>Gets the UTC last updated date and time for current entity.</summary>
+            <value>The UTC last updated.</value>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.IDto">
+            <summary>
+            A Data Transfer Object
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.IDto`1">
+            <summary>
+            A Data Transfer Object
+            </summary>
+            <typeparam name="TKey">Type of the Id Property</typeparam>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.IDtoResult`1">
+             <summary>
+             Interface for DTO result
+            
+             <seealso cref="T:PH.Core3.Common.Models.ViewModels.IEditDto`1"/>
+             </summary>
+             <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.IDtoResult`1.UtcLastUpdated">
+            <summary>Gets the UTC last updated date and time for current entity.</summary>
+            <value>The UTC last updated.</value>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.IEditDto`1">
+             <summary>
+             DTO for Edit/Update
+            
+             <seealso cref="T:PH.Core3.Common.Models.ViewModels.INewDto"/>
+             </summary>
+             <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.INewDto">
+            <summary>
+            DTO for Insert/Create
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.IEditTreeDto`1">
+            <summary>
+            A Data Transfer Object Tree Item
+            </summary>
+            <typeparam name="TKey">Type of the Id Property (this must be a struct, e.g. Guid)</typeparam>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.ITreeDto">
+            <summary>
+            A Data Transfer Object Tree Item
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`1.RootId">
+            <summary>
+            Reference Id For Root Item
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`2">
+            <summary>
+            Interface of Tree Item Result
+            </summary>
+            <typeparam name="TTree"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`2.Childrens">
+            <summary>
+            List of Children Items
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`2.Deep">
+            <summary>
+            Deep of Tree
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`2.TreeCount">
+            <summary>
+            Tree Count
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeItemDto`2.EntityLevel">
+            <summary>
+            Position On Level Of Tree
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.ITreeNewDto`1">
+            <summary>
+            DTO for Insert/Create
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.ITreeNewDto`1.ParentId">
+             <summary>
+             Reference Id for Parent
+            
+             Null if current item is a root
+             </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3">
+            <summary>
+            Class of Tree Item Result
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TTree">Interface type result</typeparam>
+            <typeparam name="TSelf">Class type result</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.ParentId">
+             <summary>
+             Reference Id for Parent
+            
+             Null if current item is a root
+             </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.RootId">
+            <summary>
+            Reference Id For Root Item
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.Childrens">
+            <summary>
+            List of Children Items
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.Deep">
+            <summary>
+            Deep of Tree
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.TreeCount">
+            <summary>
+            Tree Count
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.EntityLevel">
+            <summary>
+            Position On Level Of Tree
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Models.ViewModels.Tree.TreeItemDto`3.#ctor">
+            <summary>
+            Init new Instance
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Error.ErrorMessage">
+            <summary>
+            The Error ErrorMessage
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Error.ErrorEventId">
+            <summary>
+            Error EventId if any
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Error.OutputMessage">
+            <summary>
+            Optional Message to Service that received the error
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Error.InnerError">
+            <summary>
+            Inner Error if any
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Error.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Error"/> class.</summary>
+            <param name="errorMessage">The error message.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Error.#ctor(System.String,Microsoft.Extensions.Logging.EventId)">
+            <summary>Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Error"/> class.</summary>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Error.#ctor(System.String,PH.Core3.Common.Result.IError)">
+            <summary>Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Error"/> class.</summary>
+            <param name="errorMessage">The error message.</param>
+            <param name="innerError">The inner error.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Error.#ctor(System.String,Microsoft.Extensions.Logging.EventId,PH.Core3.Common.Result.IError)">
+            <summary>Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Error"/> class.</summary>
+            <param name="errorMessage">The error message.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="innerError">The inner error.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Error.FromException(System.Exception,System.Nullable{Microsoft.Extensions.Logging.EventId})">
+            <summary>Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Error"/> class from a exception.</summary>
+            <param name="exception">The exception.</param>
+            <param name="eventId">The event identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">exception if null exception given</exception>
+        </member>
+        <member name="T:PH.Core3.Common.Result.IError">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IError.ErrorMessage">
+            <summary>
+            Error Message
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IError.ErrorEventId">
+            <summary>
+            Event Id
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IError.OutputMessage">
+            <summary>
+            Optional Message to Service that received the error
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IError.InnerError">
+            <summary>
+            Inner Error
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Result.IResult`1">
+            <summary>
+            Transport object result wrapping a contents
+            </summary>
+            <typeparam name="T">Type of the Result content</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IResult`1.Identifier">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IResult`1.OnError">
+            <summary>
+            Gets a value indicating whether on error.
+            </summary>
+            <value><c>true</c> if on error; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IResult`1.Error">
+            <summary>Gets the error, if any.</summary>
+            <value>The error.</value>
+        </member>
+        <member name="P:PH.Core3.Common.Result.IResult`1.Content">
+            <summary>
+            Result Content
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Result.LazyEvaluatedError">
+             <summary>
+             Error instance related to a lazy-evaluated function
+            
+             <see cref="M:PH.Core3.Common.Result.ResultFactory.FailLazyEvaluatedFunction``1(System.Int32,PH.Core3.Common.IIdentifier,PH.Core3.Common.Result.IError)"/>
+             </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.LazyEvaluatedError.ProgrId">
+            <summary>
+            Int identifier of function in error
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyEvaluatedError.#ctor(System.Int32,System.String,System.String,System.Nullable{Microsoft.Extensions.Logging.EventId},PH.Core3.Common.Result.IError)">
+            <summary>
+            Init new instance of LazyEvaluatedError
+            </summary>
+            <param name="progrId">Int identifier of function in error</param>
+            <param name="errorMessage">Error message (useful for logging)</param>
+            <param name="outputMessage">Optional Message to Service that received the error</param>
+            <param name="errorEventId">Event Id for this error</param>
+            <param name="innerError">Inner Error</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyResult`1.#ctor(PH.Core3.Common.IIdentifier,System.Int32,`0)">
+            <summary>
+            Init new instance of result with no error
+            </summary>
+            <param name="identifier">Identifier</param>
+            <param name="progrId">progr id</param>
+            <param name="content">Content</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyResult`1.#ctor(PH.Core3.Common.IIdentifier,System.Int32,PH.Core3.Common.Result.IError)">
+            <summary>
+            Init new instance of result with errors
+            </summary>
+            <param name="identifier">Identifier</param>
+            <param name="progrId">progr id</param>
+            <param name="error">error </param>
+        </member>
+        <member name="T:PH.Core3.Common.Result.LazyEvaluatorAsync`1">
+            <summary>
+            Lazy evaluator for functions
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyEvaluatorAsync`1.RaiseExitAsync">
+            <summary>Raises the exit asynchronous.</summary>
+            <returns>Result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyEvaluatorAsync`1.Next``1(System.Func{PH.Core3.Common.Result.LazyEvaluatorAsync{`0},PH.Core3.Common.Result.IResult{`0},System.Threading.Tasks.Task{PH.Core3.Common.Result.IResult{``0}}},System.Func{PH.Core3.Common.Result.IResult{``0},System.Threading.Tasks.Task{PH.Core3.Common.Result.IResult{``0}}})">
+            <summary>Add the specified next function.</summary>
+            <typeparam name="TOther">The type of the next exit result.</typeparam>
+            <param name="nextFunction">The next function.</param>
+            <param name="onErrorFunc">The on error function.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyEvaluatorAsync`1.ResolveAsync">
+            <summary>
+            Async result a chain of functions returning output result
+            </summary>
+            <returns>final result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.LazyEvaluatorAsync`1.TryResolveAsync">
+            <summary>Tries the resolve asynchronous.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Result.Result`1">
+            <summary>
+            Transport object result wrapping a contents
+            </summary>
+            <typeparam name="T">Type of the Content</typeparam>
+            <seealso cref="T:PH.Core3.Common.Result.IResult`1" />
+        </member>
+        <member name="M:PH.Core3.Common.Result.Result`1.#ctor(PH.Core3.Common.IIdentifier,`0,PH.Core3.Common.Result.IError)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Result`1"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="content">The content.</param>
+            <param name="error">The error.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Result.Result`1.#ctor(PH.Core3.Common.IIdentifier,PH.Core3.Common.Result.IError)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Result.Result`1"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="error">The error.</param>
+            <exception cref="T:System.ArgumentNullException">
+            error
+            or
+            identifier
+            </exception>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Result`1.Identifier">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Result`1.Content">
+            <summary>Result Content</summary>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Result`1.OnError">
+            <summary>
+            Gets a value indicating whether on error.
+            </summary>
+            <value><c>true</c> if on error; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:PH.Core3.Common.Result.Result`1.Error">
+            <summary>Gets the error, if any.</summary>
+            <value>The error.</value>
+        </member>
+        <member name="T:PH.Core3.Common.Result.ResultFactory">
+            <summary>
+            Static Factory class for init Result 
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Result.ResultFactory.ChainAsync``1(PH.Core3.Common.IIdentifier,System.Func{System.Threading.Tasks.Task{PH.Core3.Common.Result.IResult{``0}}},System.Func{PH.Core3.Common.Result.IResult{``0},System.Threading.Tasks.Task{PH.Core3.Common.Result.IResult{``0}}})">
+            <summary>Chains the asynchronous.</summary>
+            <typeparam name="TContent">The type of the content.</typeparam>
+            <param name="identifier">The identifier.</param>
+            <param name="asyncFnc">The asynchronous FNC.</param>
+            <param name="onErrorFunc">The on error function.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.ResultFactory.FailFromException``1(PH.Core3.Common.IIdentifier,System.Exception,System.Nullable{Microsoft.Extensions.Logging.EventId},System.String,System.String)">
+            <summary>Fails from exception.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="identifier">The identifier.</param>
+            <param name="ex">The ex.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.ResultFactory.FailLazyEvaluatedFunction``1(System.Int32,PH.Core3.Common.IIdentifier,PH.Core3.Common.Result.IError)">
+            <summary>
+            Bad Result
+            </summary>
+            <typeparam name="TContent">Type of object on error</typeparam>
+            <param name="progrId">Int id of LazyEvaluator</param>
+            <param name="identifier">Identifier</param>
+            <param name="error">errors</param>
+            <returns>bad result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Result.ResultFactory.FailLazyEvaluatedFunctionFromException``1(System.Int32,PH.Core3.Common.IIdentifier,System.Exception,System.Nullable{Microsoft.Extensions.Logging.EventId},System.String,System.String)">
+            <summary>Fails the lazy evaluated function from exception.</summary>
+            <typeparam name="TContent">The type of the content.</typeparam>
+            <param name="progrId">The progr identifier.</param>
+            <param name="identifier">The identifier.</param>
+            <param name="exception">The exception.</param>
+            <param name="eventId">The event identifier.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="outputMessage">The output message.</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Scope.NamedScope">
+            <summary>
+            A Named <see cref="T:System.IDisposable">Scope</see>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Scope.NamedScope.Instance(System.String)">
+            <summary>
+            Initialize a new instance of a <see cref="T:PH.Core3.Common.Scope.NamedScope"/>
+            </summary>
+            <param name="name">Scope Name</param>
+            <returns><see cref="T:System.IDisposable"/> scope</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Scope.NamedScope.Instance(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>Initialize a new instance of a <see cref="T:PH.Core3.Common.Scope.NamedScope"/></summary>
+            <param name="name">The name.</param>
+            <param name="logger">The logger.</param>
+            <returns>IDisposable scope</returns>
+        </member>
+        <member name="P:PH.Core3.Common.Scope.NamedScope.Scope">
+            <summary>
+            Scope Name
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Scope.NamedScope.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        </member>
+        <member name="P:PH.Core3.Common.Scope.NamedScope.Disposed">
+            <summary>
+            True if Disposed Scope
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Scope.NullScope">
+            <summary>
+            A Null Scope
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Scope.NullScope.Instance">
+            <summary>
+            new Instance of <see cref="T:PH.Core3.Common.Scope.NullScope"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Scope.NullScope.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        </member>
+        <member name="P:PH.Core3.Common.Scope.NullScope.Disposed">
+            <summary>
+            If Dispose already performed
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.ConstSettings">
+            <summary>Constants</summary>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.ConstSettings.TransientReadConsts">
+            <summary>
+              <para>Constants Settings for TransientCrudService</para>
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Settings.ConstSettings.TransientReadConsts.ServiceIdentifier">
+            <summary>The service identifier</summary>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.ConstSettings.TransientCrudConsts">
+            <summary>
+              <para>Constants Settings for TransientCrudService</para>
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Settings.ConstSettings.TransientCrudConsts.ServiceIdentifier">
+            <summary>The service identifier</summary>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.ISettingValue`1">
+            <summary>
+            Abstraction for Setting
+            </summary>
+            <typeparam name="T">Type of Value</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.ISettingValue`1.Value">
+            <summary>
+            The Value of the Setting
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.ISettingValue`1.GetValue">
+            <summary>
+            Get Current Value for Setting
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.IVariableSettingValue`1">
+            <summary>
+            Abstraction for a Setting that can change during scope.
+            </summary>
+            <typeparam name="T">Type of Value</typeparam>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.IVariableSettingValue`1.Value">
+            <summary>
+            The Value of the Setting
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.IVariableSettingValue`1.Changed">
+            <summary>
+            True if changed during scope life.
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.IVariableSettingValue`1.SetValue(`0)">
+            <summary>Sets the value.</summary>
+            <param name="currentValue">The current value.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.IVariableSettingValue`1.Reset">
+             <summary>
+             If changed during scope life reset to original value, otherwise do not perform nothing.
+            
+             Return Original value of Setting
+             </summary>
+             <returns>Setting Original Value</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.SettingAbstraction`1">
+            <summary>
+            Setting Abstraction
+            </summary>
+            <typeparam name="T">Type of Value</typeparam>
+        </member>
+        <member name="F:PH.Core3.Common.Settings.SettingAbstraction`1._v">
+            <summary>
+            Original value
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.SettingAbstraction`1.CanSet">
+            <summary>
+            If True Setting new value is enabled.
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingAbstraction`1.#ctor">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingAbstraction`1"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingAbstraction`1.#ctor(`0)">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingAbstraction`1"/> with initial value
+            </summary>
+            <param name="v">Setting Value</param>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.SettingAbstraction`1.Value">
+            <summary>
+            Get the Value of the Setting
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingAbstraction`1.SetValue(`0)">
+            <summary>
+            Set the Setting Value
+            </summary>
+            <param name="value">value</param>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingAbstraction`1.GetValue">
+            <summary>
+            Return the Value of the Setting
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingAbstraction`1.op_Implicit(PH.Core3.Common.Settings.SettingAbstraction{`0})~`0">
+            <summary>
+            Implicit conversion for value
+            </summary>
+            <param name="d">Setting instance</param>
+            <returns>Value of the Setting</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.SettingConst`1">
+            <summary>
+            Read-Only Setting
+            </summary>
+            <typeparam name="T">Type of Value</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingConst`1.#ctor">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingConst`1"/>
+            
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingConst`1.#ctor(`0)">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingConst`1"/> with read-only value
+            </summary>
+            <param name="v">Setting value</param>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingConst`1.op_Implicit(PH.Core3.Common.Settings.SettingConst{`0})~`0">
+            <summary>
+            Implicit conversion for value
+            </summary>
+            <param name="d">Setting instance</param>
+            <returns>Value of the Setting</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Settings.SettingVariable`1">
+            <summary>
+            Variable Setting
+            </summary>
+            <typeparam name="T">Type of Value</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.#ctor">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingVariable`1"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.#ctor(`0)">
+            <summary>
+            Init new instance of <see cref="T:PH.Core3.Common.Settings.SettingVariable`1"/> with initial value
+            </summary>
+            <param name="v">Setting Value</param>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.op_Implicit(PH.Core3.Common.Settings.SettingVariable{`0})~`0">
+            <summary>
+            Implicit conversion for value
+            </summary>
+            <param name="d">Setting instance</param>
+            <returns>Value of the Setting</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.op_Implicit(`0)~PH.Core3.Common.Settings.SettingVariable{`0}">
+            <summary>
+            Implicit conversion for value
+            </summary>
+            <param name="value">Value of the setting</param>
+            <returns>Setting Variable</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.GetValue">
+            <summary>
+            Return the current value of setting.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PH.Core3.Common.Settings.SettingVariable`1.Changed">
+            <summary>
+            If True the current value is changed from original value
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.SetValue(`0)">
+            <summary>
+            Set the Setting Value
+            </summary>
+            <param name="value">value</param>
+        </member>
+        <member name="M:PH.Core3.Common.Settings.SettingVariable`1.Reset">
+             <summary>
+             If changed during scope life reset to original value, otherwise do not perform nothing.
+            
+             Return Original value of Setting
+             </summary>
+             <returns>Setting Original Value</returns>
+        </member>
+        <member name="T:PH.Core3.Common.UnitOfWorkInfrastructure.UnitOfWorkEventArg">
+            <summary>
+            Event Argument fired on Commit a IUnitOfWork
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.UnitOfWorkInfrastructure.UnitOfWorkEventArg.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initialize a new instance of UnitOfWorkEventArg class. 
+            </summary>
+            <param name="identifier"></param>
+        </member>
+        <member name="T:PH.Core3.Common.Validation.CoreValidationException">
+            <summary>
+            Core Exception caused by Invalid Data
+            </summary>
+            <seealso cref="T:PH.Core3.Common.CoreSystem.CoreException" />
+        </member>
+        <member name="P:PH.Core3.Common.Validation.CoreValidationException.ValidationFailures">
+            <summary>
+            Gets the validation failures.
+            </summary>
+            <value>
+            The validation failures.
+            </value>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationException.#ctor(PH.Core3.Common.IIdentifier,System.Collections.Generic.IEnumerable{PH.Core3.Common.Validation.CoreValidationFailure})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Validation.CoreValidationException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="validationFailures">The validation failures.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationException.#ctor(PH.Core3.Common.IIdentifier,System.String,System.Collections.Generic.IEnumerable{PH.Core3.Common.Validation.CoreValidationFailure})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Validation.CoreValidationException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="message">The message.</param>
+            <param name="validationFailures">The validation failures.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationException.#ctor(PH.Core3.Common.IIdentifier,System.String,System.Collections.Generic.IEnumerable{PH.Core3.Common.Validation.CoreValidationFailure},System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Validation.CoreValidationException"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="message">The message.</param>
+            <param name="validationFailures">The validation failures.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationException.ParseDataAnnotationErrors(PH.Core3.Common.IIdentifier,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult},System.String,System.Exception)">
+            <summary>
+            Parses the data annotation errors and return instance of CoreValidationException
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="errors">The errors.</param>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+            <returns>CoreValidationException</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Validation.CoreValidationFailure">
+            <summary>
+            Validation Failure Core
+            </summary>
+            <seealso cref="T:FluentValidation.Results.ValidationFailure" />
+        </member>
+        <member name="P:PH.Core3.Common.Validation.CoreValidationFailure.EventId">
+            <summary>Gets the event identifier.</summary>
+            <value>The event identifier.</value>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationFailure.#ctor(Microsoft.Extensions.Logging.EventId,System.String,System.String)">
+            <summary>Creates a new validation failure.</summary>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationFailure.#ctor(System.String,System.String,System.Nullable{Microsoft.Extensions.Logging.EventId})">
+            <summary>Creates a new validation failure.</summary>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationFailure.#ctor(Microsoft.Extensions.Logging.EventId,System.String,System.String,System.Object)">
+            <summary>Creates a new ValidationFailure.</summary>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationFailure.#ctor(System.String,System.String,System.Object,System.Nullable{Microsoft.Extensions.Logging.EventId})">
+            <summary>Creates a new ValidationFailure.</summary>
+        </member>
+        <member name="M:PH.Core3.Common.Validation.CoreValidationFailure.ParseDataAnnotationFailure(System.ComponentModel.DataAnnotations.ValidationResult)">
+            <summary>Parses the data annotation failure.</summary>
+            <param name="failure">The failure.</param>
+            <returns>CoreValidationFailure</returns>
+        </member>
+    </members>
+</doc>

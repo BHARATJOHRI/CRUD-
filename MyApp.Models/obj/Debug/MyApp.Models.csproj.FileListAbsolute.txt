@@ -1,0 +1,12 @@
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\MyApp.Models.dll
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\MyApp.Models.pdb
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\obj\Debug\MyApp.Models.csproj.AssemblyReference.cache
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\obj\Debug\MyApp.Models.csproj.CoreCompileInputs.cache
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\obj\Debug\MyApp.Models.dll
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\obj\Debug\MyApp.Models.pdb
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\MyApp.Models.dll.config
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\EntityFramework.dll
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\EntityFramework.xml
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bharatjohri\source\repos\MVCAppWithDb\MyApp.Models\obj\Debug\MyApp.Models.csproj.CopyComplete

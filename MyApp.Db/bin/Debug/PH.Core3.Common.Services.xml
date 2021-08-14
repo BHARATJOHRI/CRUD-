@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.Common.Services</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.Common.Services.Crud.IAddService`3">
+            <summary>
+            Service for Adding new Items
+            </summary>
+            <typeparam name="TDto">Type of the Result</typeparam>
+            <typeparam name="TNewDto">Type of the Add Item</typeparam>
+            <typeparam name="TKey">Type of the Result Id Property</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.IAddService`3.AddAsync(`1)">
+            <summary>
+            Async Add new Item
+            </summary>
+            <param name="entity">Item to Add</param>
+            <returns><see cref="T:PH.Core3.Common.Result.Result`1"/> containing added Item or error</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ICrudAbstractionBase">
+            <summary>
+            Base Service for Organize Crud Services
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ICrudAbstractionBase.BeginNoValidationScope(System.String)">
+            <summary>
+            Init a Scope in which validation is not performed.
+            </summary>
+            <param name="scopeName">Optional Scope Name</param>
+            <returns>Disposable Scope</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ISimpleRemoveService`2">
+            <summary>
+            Simple Remove Service
+            </summary>
+            <typeparam name="T">The Entity Type</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ISimpleRemoveService`2.EntityRemoveByIdAsync(`1)">
+            <summary>
+            Async Remove existing Item
+            </summary>
+            <param name="id">value of the Id property</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ICrudSimpleService`2">
+            <summary>
+            Simple Crud Service
+            </summary>
+            <typeparam name="T">The Entity Type</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ICrudService`4">
+             <summary>
+             Service for CRUD (Create/Read/Update/Delete) Operations.
+            
+             
+                 <see cref="T:PH.Core3.Common.Services.Crud.IReadOnlyService`2"/>
+                 <see cref="T:PH.Core3.Common.Services.Crud.IAddService`3"/>
+                 <see cref="T:PH.Core3.Common.Services.Crud.IUpdateService`3"/>
+                 <see cref="T:PH.Core3.Common.Services.Crud.IRemoveService`2"/>
+             </summary>
+             <typeparam name="TDto">Type of the Result</typeparam>
+             <typeparam name="TNewDto">Type of the Add Class</typeparam>
+             <typeparam name="TEditDto">Type of the Edit Class</typeparam>
+             <typeparam name="TKey">Type of the Result and Edit Id Property</typeparam>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.IReadOnlyService`2">
+             <summary>
+             Service For Read-Only operation.
+            
+             
+             </summary>
+             <typeparam name="TDto">Type of the Content to Read</typeparam>
+             <typeparam name="TKey">Type of the Content Id Property</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.IReadOnlyService`2.FindByIdAsync(`1)">
+            <summary>
+            Find  by Id
+            </summary>
+            <param name="id">Id</param>
+            <returns><see cref="N:PH.Core3.Common.Result"/> instance</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.IReadOnlyService`2.LoadAllAsync">
+            <summary>
+            Load All Items
+            </summary>
+            <returns><see cref="T:PH.Core3.Common.Result.Result`1"/> instance</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.IRemoveService`2">
+            <summary>
+            Service for Deleting exsisting Items
+            </summary>
+            <typeparam name="TDto">Type of the Item to remove</typeparam>
+            <typeparam name="TKey">Type of the Result Id Property</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.IRemoveService`2.RemoveByIdAsync(`1)">
+            <summary>
+            Async Remove existing Item
+            </summary>
+            <param name="id">value of the Id property</param>
+            <returns></returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ISimpleAddService`2">
+            <summary>
+            Simple Add Service
+            </summary>
+            <typeparam name="T">The Entity Type</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ISimpleAddService`2.EntityAddAsync(`0)">
+            <summary>
+            Async Add new Item
+            </summary>
+            <param name="entity">Item to Add</param>
+            <returns><see cref="T:PH.Core3.Common.Result.Result`1"/> containing added Item or error</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ISimpleReadService`2">
+            <summary>
+            Simple Read Service
+            </summary>
+            <typeparam name="T">The Entity Type</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ISimpleReadService`2.EntityFindByIdAsync(`1)">
+            <summary>
+            Find  by Id
+            </summary>
+            <param name="id">Id</param>
+            <returns><see cref="N:PH.Core3.Common.Result"/> instance</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ISimpleReadService`2.EntityLoadAllAsync">
+            <summary>
+            Load All Items
+            </summary>
+            <returns><see cref="T:PH.Core3.Common.Result.Result`1"/> instance</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ISimpleUpdateService`2">
+            <summary>
+            Simple Update Service
+            </summary>
+            <typeparam name="T">The Entity Type</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ISimpleUpdateService`2.EntityUpdateAsync(`0)">
+            <summary>
+            Async update a entity
+            </summary>
+            <param name="entity">Content to Update</param>
+            <returns><see cref="N:PH.Core3.Common.Result"/> result</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.ITreeCrudService`4">
+            <summary>
+            Service for CRUD (Create/Read/Update/Delete) Operations on Tree Items.
+                
+                <see cref="T:PH.Core3.Common.Services.Crud.ICrudService`4"/>
+            </summary>
+            <typeparam name="TDto">Type of the Result</typeparam>
+            <typeparam name="TNewDto">Type of the Add Class</typeparam>
+            <typeparam name="TEditDto">Type of the Edit Class</typeparam>
+            <typeparam name="TKey">Type of the Result and Edit Id Property (this must be a struct, e.g. a Guid)</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.ITreeCrudService`4.LoadAllAsTreeAsync">
+            <summary>
+            Load All Items as Tree
+            </summary>
+            <returns><see cref="T:PH.Core3.Common.Result.Result`1"/> instance</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Crud.IUpdateService`3">
+            <summary>
+            Service for Update exsisting items.
+            </summary>
+            <typeparam name="TDto">Type of the Result</typeparam>
+            <typeparam name="TEditDto">Type of the Update Item</typeparam>
+            <typeparam name="TKey">Type of the Result Id Property</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Crud.IUpdateService`3.UpdateAsync(`1)">
+            <summary>
+            Async update a Dto
+            </summary>
+            <param name="entity">Content to Update</param>
+            <returns><see cref="N:PH.Core3.Common.Result"/> result</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.IService">
+            <summary>
+            Generic Service abstraction
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.IService.Identifier">
+            <summary>
+            Per Scope Transient Identifier
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.IService.ServiceIdentifier">
+            <summary>
+            Service Identifier (a int value representing the service and the service name)
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Path.IWebPathTranslator">
+            <summary>
+            Translate Web and FileSystem Path
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Path.IWebPathTranslator.ToFileSystemPath(System.String)">
+            <summary>
+            Translate a Web-Relative Path to FileSystem Path
+            </summary>
+            <param name="webrelativePath">Web Path relative to the Root directory ~/ </param>
+            <returns>File System Path</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Path.IWebPathTranslator.ToWebRelativePath(System.IO.FileInfo)">
+            <summary>
+            Translate a FileSystem FileInfo to Web-Relative Path string 
+            </summary>
+            <param name="file">FileInfo</param>
+            <returns>Web Path relative to the Root directory</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Path.IWebPathTranslator.ToWebRelativePath(System.IO.DirectoryInfo)">
+            <summary>
+            Translate a FileSystem DirectoryInfo to Web-Relative Path string 
+            </summary>
+            <param name="directory">DirectoryInfo</param>
+            <returns>Web Path relative to the Root directory</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Path.IWebPathTranslator.GetFile(System.String)">
+            <summary>
+            Get FileInfo from Web-Relative Path string 
+            </summary>
+            <param name="webrelativePath"></param>
+            <returns>FileInfo</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Path.IWebPathTranslator.GetDirectory(System.String)">
+            <summary>
+            Get DirectoryInfo from Web-Relative Path string 
+            </summary>
+            <param name="webrelativePath"></param>
+            <returns>DirectoryInfo</returns>
+        </member>
+    </members>
+</doc>

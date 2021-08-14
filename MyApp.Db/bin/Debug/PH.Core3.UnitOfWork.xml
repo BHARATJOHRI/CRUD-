@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.UnitOfWork</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.UnitOfWork.IUnitOfWork">
+            <summary>
+            Unit Of Work
+            </summary>
+            <seealso cref="T:PH.Core3.Common.CoreSystem.ICoreDisposable" />
+        </member>
+        <member name="P:PH.Core3.UnitOfWork.IUnitOfWork.Identifier">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="M:PH.Core3.UnitOfWork.IUnitOfWork.Commit">
+            <summary>
+            Perform Transaction Commit on a Db.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.UnitOfWork.IUnitOfWork.Commit(System.String)">
+            <summary>
+            Perform Transaction Commit on a Db and write a custom log message related to this commit.
+            On Error automatically perform a <see cref="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback"/>
+            </summary>
+            <param name="logMessage"></param>
+        </member>
+        <member name="M:PH.Core3.UnitOfWork.IUnitOfWork.Rollback">
+             <summary>
+             Rollback changes on Db Transaction.
+            
+             <exception cref="T:System.Exception">On rollback error re-trow exception</exception>
+             </summary>
+        </member>
+        <member name="E:PH.Core3.UnitOfWork.IUnitOfWork.Committed">
+            <summary>
+            Fired On Committed Unit Of Work
+            </summary>
+        </member>
+        <member name="M:PH.Core3.UnitOfWork.IUnitOfWork.BeginScope(System.String)">
+            <summary>Begins the scope.</summary>
+            <param name="scopeName">Name of the scope.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

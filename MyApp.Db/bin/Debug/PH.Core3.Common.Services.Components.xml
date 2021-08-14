@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PH.Core3.Common.Services.Components</name>
+    </assembly>
+    <members>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.Entities.DataAnnotationsValidator">
+            <summary>
+            Use Data Annotations to valid property of a class.
+            
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.DataAnnotationsValidator.TryValidate(System.Object,System.Collections.Generic.ICollection{System.ComponentModel.DataAnnotations.ValidationResult}@)">
+            <summary>
+            Try to validate.
+            </summary>
+            <param name="object">The object.</param>
+            <param name="results">The results.</param>
+            <returns><c>True</c> if valid</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext">
+            <summary>
+            Validation context
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            
+            </summary>
+            <param name="identifier"></param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.PerformDataAnnotationValidation(System.Object)">
+            <summary>Performs the data annotation validation.</summary>
+            <param name="objectToValidate">The object to validate.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.PerformDataAnnotationValidationAsync(System.Object)">
+            <summary>Performs the data annotation validation.</summary>
+            <param name="objectToValidate">The object to validate.</param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailure(PH.Core3.Common.Validation.CoreValidationFailure)">
+            <summary>
+            Add a failure
+            </summary>
+            <param name="failure">failure</param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureAsync(System.String,System.String,System.String)">
+            <summary>
+            add async failure
+            </summary>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="outputMessage">output message</param>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureAsync(Microsoft.Extensions.Logging.EventId,System.String,System.String,System.String)">
+            <summary>
+            add async failure
+            </summary>
+            <param name="eventId">event id</param>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="outputMessage">output message</param>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureWithValueAsync(System.String,System.String,System.Object,System.String)">
+            <summary>
+            add async failure with current value
+            </summary>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="attemptedValue">attempted value on error</param>
+            <param name="outputMessage">output message</param>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureWithValueAsync(Microsoft.Extensions.Logging.EventId,System.String,System.String,System.Object,System.String)">
+            <summary>
+            add async failure with current value
+            </summary>
+            <param name="eventId">event id</param>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="attemptedValue">attempted value on error</param>
+            <param name="outputMessage">output message</param>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailure(Microsoft.Extensions.Logging.EventId,System.String,System.String,System.String)">
+            <summary>
+            add failure
+            </summary>
+            <param name="eventId">event id</param>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="outputMessage">output message</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailure(System.String,System.String,System.String)">
+            <summary>Adds the failure.</summary>
+            <param name="propertyName">Name of the property.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="outputMessage">The output message.</param>
+            <exception cref="T:System.ArgumentNullException">
+            propertyName
+            or
+            errorMessage
+            </exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureWithValue(System.String,System.String,System.Object,System.String)">
+            <summary>Adds the failure with value.</summary>
+            <param name="propertyName">Name of the property.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="attemptedValue">The attempted value.</param>
+            <param name="outputMessage">The output message.</param>
+            <exception cref="T:System.ArgumentNullException">
+            propertyName
+            or
+            errorMessage
+            </exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.AddFailureWithValue(Microsoft.Extensions.Logging.EventId,System.String,System.String,System.Object,System.String)">
+            <summary>
+            add a failure
+            </summary>
+            <param name="eventId">event id</param>
+            <param name="propertyName">property name</param>
+            <param name="errorMessage">error message</param>
+            <param name="attemptedValue">attempted value on error</param>
+            <param name="outputMessage">output message</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.GetValidationResult">
+            <summary>
+            return validation results
+            </summary>
+            <returns>Validation result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity">Type Of Entity</typeparam>
+            <typeparam name="TKey">Type of Entity Id Property</typeparam>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.#ctor(PH.Core3.Common.IIdentifier,System.Func{`0,PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext,System.Threading.Tasks.Task{FluentValidation.Results.ValidationResult}},System.Func{`0,PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext,System.Threading.Tasks.Task{FluentValidation.Results.ValidationResult}},System.Func{`0,PH.Core3.Common.Services.Components.Crud.Entities.EntityValidationContext,System.Threading.Tasks.Task{FluentValidation.Results.ValidationResult}},Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.Services.Components.Crud.TransientCrudSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="funcOnCreateValidation">The function on create validation.</param>
+            <param name="funcOnUpdateValidation">The function on update validation.</param>
+            <param name="funcOnDeleteValidation">The function on delete validation.</param>
+            <param name="logger">The logger.</param>
+            <param name="settings">The settings.</param>
+            <exception cref="T:System.ArgumentNullException">
+            funcOnCreateValidation
+            or
+            funcOnUpdateValidation
+            or
+            funcOnDeleteValidation
+            or
+            logger
+            or
+            settings
+            </exception>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.InsertValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.UpdateValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.DeleteValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.ValidateInsertAsync(`0)">
+            <summary>
+            Validate on Insert
+            </summary>
+            <param name="entity">Entity to validate</param>
+            <returns>validation result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.ValidateUpdateAsync(`0)">
+            <summary>
+            Validate on Update
+            </summary>
+            <param name="entity">Entity to validate</param>
+            <returns>validation result</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.ValidateDeleteAsync(`0)">
+            <summary>
+            Validate on Delete
+            </summary>
+            <param name="entity">Entity to validate</param>
+            <returns>validation result</returns>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.Entities.EntityValidator`2.CoreIdentifier">
+            <summary>Gets the core identifier.</summary>
+            <value>The core identifier.</value>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.Entities.ValidationType">
+            <summary>
+            Type Of Crud Validations
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Services.Components.Crud.Entities.ValidationType.OnCreate">
+            <summary>
+            Inserting new Item.
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Services.Components.Crud.Entities.ValidationType.OnUpdate">
+            <summary>
+            Updating existing Item.
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Services.Components.Crud.Entities.ValidationType.OnDelete">
+            <summary>
+            Deleting exsisting item.
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.NoValidationScopeDisposingEventArgs">
+            <summary>
+            Event fired on Disposing a <see cref="T:PH.Core3.Common.Services.Components.Crud.NoValidationScope"/>
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.NoValidationScopeDisposingEventArgs.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Init a No-ValidationScope Event Argument 
+            </summary>
+            <param name="identifier">Cross-Scope Identifier</param>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.NoValidationScope">
+            <summary>
+            Scope in which validation is not performed.
+            
+            </summary>
+        </member>
+        <member name="F:PH.Core3.Common.Services.Components.Crud.NoValidationScope.DisposingNoValidationScope">
+            <summary>
+            Event fired before disposing no validation scope
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.NoValidationScope.#ctor(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String)">
+            <summary>
+            Init Scope in which validation is not performed.
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="identifier">Identifier</param>
+            <param name="scopeName">Scope Name</param>
+            <exception cref="T:System.ArgumentNullException">On null Logger</exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.NoValidationScope.Instance(Microsoft.Extensions.Logging.ILogger,PH.Core3.Common.IIdentifier,System.String)">
+            <summary>
+            Init Scope in which validation is not performed.
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="identifier">Identifier</param>
+            <param name="scopename">Optional Scope Name</param>
+            <exception cref="T:System.ArgumentNullException">On null Logger</exception>
+            <returns>NoValidationScope</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.NoValidationScope.OnDisposing(PH.Core3.Common.Services.Components.Crud.NoValidationScopeDisposingEventArgs)">
+            <summary>
+            On Disposing should reset validation
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.NoValidationScope.Dispose(System.Boolean)">
+            <summary>
+            Dispose Pattern.
+            This method check if already <see cref="P:PH.Core3.Common.CoreSystem.CoreDisposable.Disposed"/> (and set it to True).
+            </summary>
+            <param name="disposing">True if disposing</param>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings">
+            <summary>
+            Setting/Configuration Transient service for CRUD Entity/Dto
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.#ctor(PH.Core3.Common.IIdentifier,Microsoft.Extensions.Logging.ILogger{PH.Core3.Common.Services.Components.Crud.TransientCrudSettings})">
+            <summary>
+            Initialize a new instance of <see cref="T:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings"/> with all settings to True
+            </summary>
+            <param name="coreIdentifier">Service Identifier</param>
+            <param name="logger">Service Logger</param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.#ctor(PH.Core3.Common.IIdentifier,Microsoft.Extensions.Logging.ILogger{PH.Core3.Common.Services.Components.Crud.TransientCrudSettings},System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Initialize a new instance of <see cref="T:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings"/>
+            </summary>
+            <param name="coreIdentifier">Service Identifier</param>
+            <param name="logger">Service Logger</param>
+            <param name="autoSaveChanges">value fot auto-save changes</param>
+            <param name="insertValidationEnabled">value for validation on insert</param>
+            <param name="updateValidationEnabled">value for validation on update</param>
+            <param name="deleteValidationEnabled">value for validation on delete</param>
+            <param name="itemsPaginationSize">value for pagination, -1 to disable</param>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.AutoSaveChanges">
+             <summary>
+             If True the Service perform SaveChanges after every Add/Update/Delete.
+            
+             If False the programmer have to explicit call ContextServiceBase{TContext}.FlushChangesAsync
+             </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.InsertValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.UpdateValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.DeleteValidationEnabled">
+            <summary>
+            If False do not perform a validation and return a valid result
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientCrudSettings.ServiceIdentifier">
+            <summary>
+            Service Identifier (a int value representing the service and the service name)
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Crud.TransientReadSettings">
+            <summary>
+            Read Settings
+            </summary>
+            <seealso cref="T:PH.Core3.Common.Services.Components.ServiceBase" />
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.TransientReadSettings.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Services.Components.Crud.TransientReadSettings"/> class.
+            </summary>
+            <param name="identifier">Per Scope Transient Identifier</param>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Crud.TransientReadSettings.#ctor(PH.Core3.Common.IIdentifier,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PH.Core3.Common.Services.Components.Crud.TransientReadSettings"/> class.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <param name="itemsPaginationSize">Size of the items pagination.</param>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientReadSettings.ServiceIdentifier">
+            <summary>
+            Service Identifier (a int value representing the service and the service name)
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.Crud.TransientReadSettings.ItemsPaginationSize">
+            <summary>
+            Get or Set se Number of items retrieved by a LoadAll, or other paginated method.
+            -1 For disabling pagination
+            </summary>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.Path.WebPathTranslator">
+            <summary>
+            Translate Web and FileSystem Path
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.#ctor(System.String,Microsoft.Extensions.Logging.ILogger{PH.Core3.Common.Services.Components.Path.WebPathTranslator})">
+            <summary>
+            Init new instance
+            </summary>
+            <param name="webRootPath">Root filesystem path of web root</param>
+            <param name="logger">logger</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.ToFileSystemPath(System.String)">
+            <summary>
+            Translate a Web-Relative Path to FileSystem Path
+            </summary>
+            <param name="webrelativePath">Web Path relative to the Root directory ~/ </param>
+            <returns>File System Path</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.ToWebRelativePath(System.IO.FileInfo)">
+            <summary>
+            Translate a FileSystem FileInfo to Web-Relative Path string 
+            </summary>
+            <param name="file">FileInfo</param>
+            <returns>Web Path relative to the Root directory</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.ToWebRelativePath(System.IO.DirectoryInfo)">
+            <summary>
+            Translate a FileSystem DirectoryInfo to Web-Relative Path string 
+            </summary>
+            <param name="directory">DirectoryInfo</param>
+            <returns>Web Path relative to the Root directory</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.GetFile(System.String)">
+            <summary>
+            Get FileInfo from Web-Relative Path string 
+            </summary>
+            <param name="webrelativePath"></param>
+            <returns>FileInfo</returns>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.Path.WebPathTranslator.GetDirectory(System.String)">
+            <summary>
+            Get DirectoryInfo from Web-Relative Path string 
+            </summary>
+            <param name="webrelativePath"></param>
+            <returns>DirectoryInfo</returns>
+        </member>
+        <member name="T:PH.Core3.Common.Services.Components.ServiceBase">
+            <summary>
+            Generic Service abstraction class
+            </summary>
+        </member>
+        <member name="M:PH.Core3.Common.Services.Components.ServiceBase.#ctor(PH.Core3.Common.IIdentifier)">
+            <summary>
+            Init new Service Instance
+            </summary>
+            <param name="identifier">Per Scope Transient Identifier</param>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.ServiceBase.Identifier">
+            <summary>
+            Per Scope Transient Identifier
+            </summary>
+        </member>
+        <member name="P:PH.Core3.Common.Services.Components.ServiceBase.ServiceIdentifier">
+            <summary>
+            Service Identifier (a int value representing the service and the service name)
+            </summary>
+        </member>
+    </members>
+</doc>
